@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>·</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23DA702C'/></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1C1B1A;
+      color: #878580;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 24px;
+    }
+
+    .clock {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      opacity: 0.55;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock"></div>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const day = now.toLocaleDateString('en-US', { weekday: 'short' });
+      const time = now.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      document.getElementById('clock').textContent = day + ' ' + time;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
